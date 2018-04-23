@@ -1,0 +1,27 @@
+<div style="padding-top: 100px" *ngIf="!isDataAvailable">
+    <div class="spinner">
+      <div class="bounce1"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
+    </div>
+</div>
+<div class="container" *ngIf="isDataAvailable">
+  <h1>Pages</h1>
+  <hr>
+  <table class="table table-dark table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Identifier</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let page of pages">
+        <td>{{page.id._}}</td>
+        <td>{{page.name}}</td>
+        <td><a target="_blank" [attr.href]="page.rendered_description.$.url">{{page.identifier}}</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,14 @@
+<!-- Nav tabs -->
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" [routerLink]="['status']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Status</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" [routerLink]="['create']" routerLinkActive="active">Create Report</a>
+    </li>
+  </ul>
+  
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <router-outlet></router-outlet>
+  </div>
