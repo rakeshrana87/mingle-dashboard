@@ -5,33 +5,39 @@
     <div class="bounce3"></div>
   </div>
 </div>
-<div class="bg-dark" *ngIf="isDataAvailable">
+<div *ngIf="isDataAvailable">
   <div class="jumbotron bg-dark text-light">
     <h1 class="display-1">{{project.name | uppercase}}</h1>
     <h4>{{project.description}}</h4>
     <h4>Created at: {{project.created_at._}}</h4>
-    <h4>Created by: {{project.created_by.login}}, {{project.created_by.name}}</h4>
+    <h4>Created by: {{project.created_by.name}}( {{project.created_by.login}})</h4>
     <h4>Updated at: {{project.updated_at._}}</h4>
   </div>
   <hr>
   <div class="container-fluid">
     <div class="row">
-      <div class="col col-sm-6" *ngFor="let card of cards" style="padding-bottom: 50px">
-        <div class="card h-100">
-          <div class="card-header bg-secondary text-light">{{card.name}}</div>
-          <div class="card-body">
-            <ul class="list-group">
-              <li class="list-group-item">Created by: {{card.created_by.login}}, {{card.created_by.name}}</li>
-              <li class="list-group-item">Card Type: {{card.card_type.name}}</li>
-              <li class="list-group-item">Card number: {{card.number._}}</li>
-              <li class="list-group-item">
-                <a target="_blank" [attr.href]="card.rendered_description.$.url">Description</a>
-              </li>
-            </ul>
-          </div>
-          <!--div class="card-body"><div [innerHTML]="card.description"></div></div-->
-        </div>
-      </div>
+      <table cellSpacing="3" cellPadding="3" border="0" width="100%">      
+             <tr>
+                <th>Sno.</th>
+                <th>Created by</th>
+                <th>Card Name</th>
+                <th>Card Id</th>
+                <th>Card Type</th>
+               <!-- <th>Start Date</th>
+                <th>End Date</th>
+                <th>Total Story Points</th>
+                <th>Total Estimated Hours</th>-->
+                <th>Assigned to</th>
+             </tr>
+             <tr *ngFor="let card of cards; let i=index">
+                <td>{{i+1}}</td>
+                <td>{{card.created_by.name}}</td>
+                <td><a href="https://mingle.epk.ericsson.se/api/v2/projects/classic_sdp/render?content_provider[type]=card&content_provider[id]={{card.id._}}" title="{{card.name}}">{{card.name}}</a></td>
+                <td>{{card.id._}}</td> 
+                <td>{{card.card_type.name}}</td>                
+                <td>-</td>
+             </tr> 
+          </table> 
+      </div>  
     </div>
-  </div>
 </div>

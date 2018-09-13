@@ -6,7 +6,7 @@ declare var require: any;
 
 let parseString = require('xml2js').parseString;
 
-const auth = 'Basic ' + btoa("" + ":" + "");
+const auth = 'Basic ' + btoa("esmapen" + ":" + "Sweety1@3");
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -73,6 +73,7 @@ export class MingleComponent implements OnInit {
         throw new Error(error);
       } else {
         res = result;
+        console.log(typeof(res));
       }
 
     });
