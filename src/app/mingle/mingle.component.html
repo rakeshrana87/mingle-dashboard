@@ -32,7 +32,7 @@
              <tr *ngFor="let card of cards; let i=index">
                 <td>{{i+1}}</td>
                 <td>{{card.created_by.name}}</td>
-                <td><a href="https://mingle.epk.ericsson.se/api/v2/projects/classic_sdp/render?content_provider[type]=card&content_provider[id]={{card.id._}}" title="{{card.name}}">{{card.name}}</a></td>
+                <td><a target="_blank" href="https://mingle.epk.ericsson.se/api/v2/projects/classic_sdp/render?content_provider[type]=card&content_provider[id]={{card.id._}}" title="{{card.name}}">{{card.name}}</a></td>
                 <td>{{card.id._}}</td> 
                 <td>{{card.card_type.name}}</td>                
                 <td>-</td>

@@ -1,0 +1,34 @@
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-danger">
+  <a class="navbar-brand" [routerLink]="['home']">
+    <img src="/assets/Artboard.png" alt="">
+    &nbsp;
+    Scrum Board
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>  
+</nav>
+
+<div align="center" style="top:100px;position:relative">
+    <h2>Login</h2>
+    <form class="login" [formGroup]="rform"  (ngSubmit) = "onSubmit(rform.value)" >
+            <table cellSpacing="5" cellPadding="5">
+              <tr>
+                <td><label>Username</label></td>
+                <td><input type="text" placeholder="Enter username" 
+                formControlName="username" /></td>
+              </tr>
+              <tr>
+                  <td><label>Password</label></td>
+                  <td><input type="password" placeholder="Enter password" 
+                    formControlName="password" /></td>
+              </tr>
+              <tr>
+                 <td></td>
+                 <td><input type="submit" [disabled]="!rform.valid" /></td>
+              </tr>
+            <br/>
+          </table>                    
+    </form>   
+  </div>
